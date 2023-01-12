@@ -48,7 +48,6 @@ IN_ADDR GetDefaultMyIP()
 }
 */
 
-#define PORT		8080
 #define PACKET_SIZE	1024
 
 void proc_recv() {
@@ -83,12 +82,12 @@ int main(void)
 	WSADATA wsa;
 	WSAStartup(MAKEWORD(2, 2), &wsa);
 
-	skt = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+	skt = socket(AF_INET, SOCK_STREAM, 0);
 
 	SOCKADDR_IN addr = {};
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(PORT);
-	addr.sin_addr.s_addr = inet_addr("192.168.0.37");
+	addr.sin_port = htons(8080);
+	addr.sin_addr.s_addr = inet_addr("192.168.0.162");
 
 	while (1) {
 		if (!connect(skt, (SOCKADDR*)&addr, sizeof(addr))) break;
@@ -122,38 +121,5 @@ int main(void)
 
 	closesocket(skt);
 	WSACleanup();
-
-	/*
-	char	cBuffer[PACKET_SIZE] = {};
-	char	cMsg[100];
-	char	quitMsg[] = "quit";
-	char	cName[100];
-	char	cNameCopy[100];
-	int		temp = 0;
-
 	
-
-	cout << "Name : ";
-	cin >> cName;
-	send(hSocket, cName, strlen(cName), 0);
-	strcat(cName, " Send : ");
-	strcpy(cNameCopy, cName);
-	
-
-	while ((strcmp(quitMsg,cBuffer) != 0) && (strcmp(cMsg,"quit") != 0))
-	{
-		cout << "Input Message: ";
-		cin >> cMsg;
-		strcat(cName, cMsg);
-		send(hSocket, cName, sizeof(cName) -1, 0);
-		recv(hSocket, cBuffer, sizeof(cBuffer)-1, 0);
-		cout << "Server Send : " << cBuffer << endl;
-		strcpy(cName, cNameCopy);
-	}
-	*/
-	
-	closesocket(skt);
-
-	WSACleanup();
-
 }
