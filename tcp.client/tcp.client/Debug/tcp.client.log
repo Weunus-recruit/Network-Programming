@@ -1,0 +1,8 @@
+﻿  tcp.client.cpp
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(1): warning C4603: '_WINSOCK_DEPRECATED_NO_WARNINGS': 매크로가 정의되지 않았거나 미리 컴파일된 헤더 사용 후와 정의가 다릅니다.
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(1): message : 여기에서 정의하지 않고 미리 컴파일된 헤더에 매크로 추가
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(4): message : 미리 컴파일된 헤더 사용
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(2): warning C4603: '_CRT_SECURE_NO_WARNINGS': 매크로가 정의되지 않았거나 미리 컴파일된 헤더 사용 후와 정의가 다릅니다.
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(2): message : 여기에서 정의하지 않고 미리 컴파일된 헤더에 매크로 추가
+C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\tcp.client\tcp.client.cpp(4): message : 미리 컴파일된 헤더 사용
+  tcp.client.vcxproj -> C:\Users\WeUNUS\source\repos\Network-Programming\tcp.client\Debug\tcp.client.exe
