@@ -36,27 +36,37 @@ int main(void)
 	SOCKET hClient = accept(hListen, (SOCKADDR*)&tCIntAddr, &iCIntSize);
 
 	char	sID[] = "Server";
+	char	cID[100] = {};
 	char	sMsg[100];
 	char	cBuffer[PACKET_SIZE] = {};
-	int temp = 0;
-	cout << "Client Connected" << endl;
+	char	quitMsg[100] = {};
+	int		temp = 0;
 
-	while (cBuffer != "quit")
+	cout << "Client Connected" << endl;
+	recv(hClient, cBuffer, sizeof(cBuffer) - 1, 0);
+	
+	strcpy(cID, cBuffer);
+	
+
+	while ((strcmp(quitMsg, cBuffer) != 0) && (strcmp(sMsg,"quit") != 0))
 	{
+		
 		cout << "Input Message: ";
 		cin >> sMsg ;
-		recv(hClient, cBuffer, PACKET_SIZE, 0);
+		recv(hClient, cBuffer, sizeof(cBuffer) - 1, 0);
 		if (temp == 0)
 		{
-			cout << cBuffer << "Connected" << endl;
-			temp += 1;
+			cout << "Client Name : " << cID << endl;
+			strcat(quitMsg, cID);
+			strcat(quitMsg, " Send : quit");
+			temp =+ 1;
 		}
 		else
 		{
 			cout << cBuffer << endl;
 		}
-		send(hClient, sMsg, strlen(sMsg), 0);
-		
+		send(hClient, sMsg, sizeof(sMsg) -1, 0);
+
 
 	}
 
