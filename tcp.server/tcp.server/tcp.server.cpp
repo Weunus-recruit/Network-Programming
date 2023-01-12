@@ -12,7 +12,7 @@
 #pragma comment(lib, "ws2_32")
 #pragma warning(disable : 4996)
 
-#define PORT		4578
+#define PORT		8080
 #define PACKET_SIZE	1024
 
 using namespace std;

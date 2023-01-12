@@ -48,7 +48,7 @@ IN_ADDR GetDefaultMyIP()
 }
 */
 
-#define PORT		4578
+#define PORT		8080
 #define PACKET_SIZE	1024
 
 void proc_recv() {
@@ -88,7 +88,7 @@ int main(void)
 	SOCKADDR_IN addr = {};
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(PORT);
-	addr.sin_addr.s_addr = inet_addr("192.168.0.162");
+	addr.sin_addr.s_addr = inet_addr("192.168.0.37");
 
 	while (1) {
 		if (!connect(skt, (SOCKADDR*)&addr, sizeof(addr))) break;
