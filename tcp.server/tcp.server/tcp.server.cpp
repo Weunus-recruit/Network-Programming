@@ -99,10 +99,7 @@ int main()
 
 	proc2.join();																// proc2 스레드가 종료될 때 까지 대기 후 종료되었으면 다음 코드를 실행
 
-	cout << "Close Listen" << endl;
-	
 	closesocket(client_sock);													// 클라이언트 소켓 종료
 	closesocket(skt);															// 서버 소켓 종료
-
 	WSACleanup();																// ws2_32.DLL 사용 종료
 }
